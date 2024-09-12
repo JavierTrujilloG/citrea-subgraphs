@@ -1,25 +1,23 @@
 type Token @entity {
   id: ID!
-  #token name
-  name: String!
-  #token symbol
-  symbol: String!
-  #decimals used
-  decimals: BigDecimal!
+  owner: Owner!
+  mintTime: BigInt!
+  transfers: [Transfer!]! @derivedFrom(field: "token")
+  transferCount: BigInt!
 }
 
-# account details
-type Account @entity {
-  #account address
+type Owner @entity {
   id: ID!
-  #balances
-  balances: [TokenBalance!]! @derivedFrom(field: "account")
+  tokens: [Token!]! @derivedFrom(field: "owner")
+  tokensOwned: BigInt!
 }
 
-# token balance details
-type TokenBalance @entity {
-  id: ID!
-  token: Token!
-  account: Account!
-  amount: BigDecimal!
+type Transfer @entity
+{
+  id:                           ID!
+  token:                        Token!
+  from:                         Owner!
+  to:                           Owner!
+  transaction:                  Bytes!
+  timestamp:                    BigInt!
 }

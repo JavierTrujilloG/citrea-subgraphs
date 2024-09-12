@@ -3,24 +3,22 @@ schema:
   file: schema.graphql
 dataSources:
   - kind: ethereum
-    name: usdt
+    name: cden
     network: citrea-devnet
     source:
-      address: "0x11f6e6718F748eD9693b2AA5293a33951C51b1BA"
-      abi: ERC20
-      startBlock: 1681007
+      address: "0xFd404Ba3E62E5255c3dE16b71aeaE2803135Ce6a"
+      abi: cden
+      startBlock: 1934258
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - Token
-        - Account
-        - TokenBalance
+        - Transfer
       abis:
-        - name: ERC20
-          file: usdt/abis/ERC20.json
+        - name: cden
+          file: cden/abis/cden.json
       eventHandlers:
-        - event: Transfer(indexed address,indexed address,uint256)
+        - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
-      file: usdt/usdt.wasm
+      file: cden/cden.wasm

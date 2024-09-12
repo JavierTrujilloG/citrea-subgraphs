@@ -1,19 +1,25 @@
 # Subgraph 101
 
-## Deploying ERC-20 subgraph to Goldsky
+## Basic subgraph with `graph init`
 
-We'll be indexing [Citrea USDT token contract](https://explorer.devnet.citrea.xyz/token/0x11f6e6718F748eD9693b2AA5293a33951C51b1BA) on Citrea Devnet.
+We'll be indexing an [ERC-721 NFT contract](https://explorer.testnet.immutable.com/token/0xD2c0e3119C67d7A21fFC74383fB10e510F706A45) on Immutable Testnet.
 
-The subgraph is already build, all you need to do is to deploy it onto Goldsky with the following command:
-`goldsky subgraph deploy usdt-citrea-balances/1.0.0`
-
-Alternatively, you can easily use this subgraph code to index any other ERC-20 contract by changing in the `subgraph.yaml`:
+What you'll need for your own:
 - Contract Address
+- ABI
 - Start Block
 
-Run `graph codegen` and `graph build` before deploying the subgraph.
+Caveat: Immutable isn't included in The Graph CLI's list of supported networks so some manual editing is needed.
 
-All of the code for this example was borrowed from [Chainstack](https://docs.chainstack.com/docs/subgraphs-tutorial-indexing-erc-20-token-balance).
+## Mutable data and aggregates (upgraded branch)
+
+Much of the code for this example was borrowed from [Benjythebee](https://github.com/Benjythebee/erc721-and-erc1155-subgraph).
+
+## Can we make it faster? (anotherway branch)
+
+The previous subgraph has a lot of eth_calls, can we get the same result w/o them?
+
+This subgraph borrows a lot from the [POAP subgraph](https://github.com/poap-xyz/poap-subgraph).
 
 ## Other fun subgraph resources
 
