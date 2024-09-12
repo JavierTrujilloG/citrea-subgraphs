@@ -1,0 +1,18 @@
+{
+  "version": "1", 
+  "name": "Transfers",
+  "abis": {
+    "Transfers": {
+      "path": "./usdt-erc20.abi.json"
+    }
+  },
+  "chains": ["citrea-devnet"],
+  "instances": [
+    {
+      "abi": "Transfers", 
+      "address": "0x11f6e6718F748eD9693b2AA5293a33951C51b1BA", 
+      "startBlock": 1681007, 
+      "chain": "citrea-devnet"
+    }
+  ]
+}
